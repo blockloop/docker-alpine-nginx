@@ -1,6 +1,19 @@
 alpine-nginx
 ============
 
+**<u>FORK INFO</u>**
+
+This fork was created to enable running without a custom build of nginx (i.e. docker run ... blockloop/docker-alpine-nginx). This fork only removes the /etc/nginx/conf.d/default.conf so that your docker image can be run easier without creating a custom build.
+
+```
+docker run --rm -v /path/to/custom/nginx.conf:/etc/nginx/nginx.conf blockloop/docker-alpine-nginx
+```
+
+This would not work with the previous version of nginx because the default.conf listens on port 80 and serves a static site. With this setup you write your entire site configuration in a single, custom nginx.conf file.
+
+
+---
+
 An image for using [nginx][nginx], bundled with Alpine Linux and s6.
 
 **_Yet another container for running nginx?_**
